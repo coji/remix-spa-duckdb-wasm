@@ -107,9 +107,11 @@ export default function Index() {
           <CardContent>
             <Table>
               <TableHeader>
-                <TableHead>Name</TableHead>
-                <TableHead>Gender</TableHead>
-                <TableHead>Age</TableHead>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Gender</TableHead>
+                  <TableHead>Age</TableHead>
+                </TableRow>
               </TableHeader>
               <TableBody>
                 {persons.map((person, index) => (
