@@ -17,7 +17,7 @@ export const getDb = async () => {
       tableMappings: {},
     }),
     log: (event) => {
-      console.log(event.level, event.query)
+      // console.log(event.level, event.query)
     },
   })
 
