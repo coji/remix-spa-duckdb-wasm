@@ -1,12 +1,19 @@
 import {
   Links,
   Meta,
+  MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
 import './styles/globals.css'
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: 'Remix SPA Mode DuckDB Wasm' },
+    { name: 'description', content: 'Welcome to Remix (SPA Mode)!' },
+  ]
+}
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
