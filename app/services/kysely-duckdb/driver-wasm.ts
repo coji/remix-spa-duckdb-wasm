@@ -91,13 +91,17 @@ class DuckDBConnection implements DatabaseConnection {
     sql: string,
   ): QueryResult<O> {
     const isSelect =
-      result.schema.fields.length == 1 &&
-      result.schema.fields[0].name == 'Count' &&
-      result.numRows == 1 &&
+      (result.schema.fields.length == 1 &&
+        result.schema.fields[0].name == 'Count' &&
+        result.numRows == 1) ||
       sql.toLowerCase().includes('select')
 
     if (isSelect) {
-      return { rows: result.toArray() as O[] }
+      return {
+        rows: result.toArray().map((row) => {
+          return { ...row }
+        }) as O[],
+      }
     } else {
       const row = result.get(0)
       const numAffectedRows = row == null ? undefined : BigInt(row['Count'])
