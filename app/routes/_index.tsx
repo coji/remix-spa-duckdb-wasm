@@ -79,8 +79,8 @@ export default function Index() {
   const actionData = useActionData<typeof clientAction>()
 
   return (
-    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-slate-100 md:container">
-      <header className="bg-card p-2">
+    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-slate-100">
+      <header className="border-b bg-card p-2 md:container">
         <h1 className="text-2xl font-bold">Remix SPA Mode with DuckDB Wasm</h1>
       </header>
 
@@ -162,7 +162,7 @@ export default function Index() {
         </Card>
       </div>
 
-      <footer className="flex justify-center gap-4 bg-card p-2">
+      <footer className="flex justify-center gap-4 border-t bg-card p-2">
         <a
           href="https://x.com/techtalkjp"
           target="_blank"
