@@ -79,10 +79,11 @@ export default function Index() {
   const actionData = useActionData<typeof clientAction>()
 
   return (
-    <div className="bg-slate-100 md:container">
-      <h1 className="p-2 text-2xl font-bold">
-        Remix SPA Mode with DuckDB Wasm
-      </h1>
+    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto] bg-slate-100 md:container">
+      <header className="bg-card p-2">
+        <h1 className="text-2xl font-bold">Remix SPA Mode with DuckDB Wasm</h1>
+      </header>
+
       <div className="flex flex-col gap-4 p-4">
         <Card>
           <CardHeader>
@@ -160,6 +161,25 @@ export default function Index() {
           </CardContent>
         </Card>
       </div>
+
+      <footer className="flex justify-center gap-4 bg-card p-2">
+        <a
+          href="https://x.com/techtalkjp"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
+          coji
+        </a>
+        <a
+          href="https://github.com/coji/remix-spa-duckdb-wasm"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
+          GitHub
+        </a>
+      </footer>
     </div>
   )
 }
