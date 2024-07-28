@@ -96,7 +96,7 @@ export const clientAction = async ({ request }: ClientActionFunctionArgs) => {
   if (submission.value.intent === 'load_posts') {
     await sql`load httpfs`.execute(db)
     await sql`load json`.execute(db)
-    const ret = await sql`
+    await sql`
         CREATE TABLE IF NOT EXISTS posts AS
         SELECT * FROM read_json('https://jsonplaceholder.typicode.com/posts')`.execute(
       db,
