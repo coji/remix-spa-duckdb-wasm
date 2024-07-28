@@ -9,3 +9,5 @@ export const ExtLink = twc.a.attrs({
   target: '_blank',
   rel: 'noopener noreferrer',
 })`text-blue-500 hover:underline`
+export const Stack = twc.div`flex flex-col gap-4`
+export const HStack = twc.div`flex gap-4 items-center`

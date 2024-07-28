@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@conform-to/zod": "^1.1.5",
-    "@duckdb/duckdb-wasm": "1.28.1-dev106.0",
+    "@duckdb/duckdb-wasm": "1.28.1-dev242.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",

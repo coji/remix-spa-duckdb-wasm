@@ -1,10 +1,13 @@
+import { parseWithZod } from '@conform-to/zod'
 import {
   ClientActionFunctionArgs,
   Form,
-  useActionData,
   useLoaderData,
+  useNavigation,
 } from '@remix-run/react'
 import React from 'react'
+import { toast } from 'sonner'
+import { z } from 'zod'
 import {
   Button,
   Table,
@@ -20,10 +23,15 @@ import {
   Footer,
   Header,
   Heading,
+  HStack,
   Layout,
   Main,
   Panel,
 } from './components'
+
+export const schema = z.object({
+  intent: z.enum(['seed_persons', 'load_posts']),
+})
 
 export const clientLoader = async () => {
   const db = await getDb()
@@ -34,15 +42,30 @@ export const clientLoader = async () => {
     persons = await db.selectFrom('persons').selectAll().execute()
   }
 
-  return { tables, persons }
+  let posts: any[] = []
+  if (tables.find((table) => table.name === 'posts')) {
+    posts = await db
+      .selectFrom('posts')
+      .select([
+        (eb) => eb.cast<number>('userId', 'integer').as('userId'),
+        (eb) => eb.cast<number>('id', 'integer').as('id'),
+        'title',
+        'body',
+      ])
+      .execute()
+  }
+
+  return { tables, persons, posts }
 }
 
 export const clientAction = async ({ request }: ClientActionFunctionArgs) => {
-  const formData = await request.formData()
-  const intent = formData.get('intent')
-  if (intent === 'init') {
-    const db = await getDb()
+  const submission = parseWithZod(await request.formData(), { schema })
+  if (submission.status !== 'success') {
+    return { intent: null, lastResult: submission.reply() }
+  }
 
+  const db = await getDb()
+  if (submission.value.intent === 'seed_persons') {
     await db.schema
       .createTable('persons')
       .ifNotExists()
@@ -67,13 +90,27 @@ export const clientAction = async ({ request }: ClientActionFunctionArgs) => {
       { name: 'Judy', gender: 'female', age: 70 },
     ]
     await db.insertInto('persons').values(seed).execute()
+    toast.info(`Inserted ${seed.length} records into table 'persons'`)
   }
-  return { intent }
+
+  if (submission.value.intent === 'load_posts') {
+    await sql`load httpfs`.execute(db)
+    await sql`load json`.execute(db)
+    const ret = await sql`
+        CREATE TABLE IF NOT EXISTS posts AS
+        SELECT * FROM read_json('https://jsonplaceholder.typicode.com/posts')`.execute(
+      db,
+    )
+
+    toast.info(`Loaded Tasks from JSONPlaceholder API`)
+  }
+
+  return { intent: submission.value.intent, lastResult: submission.reply() }
 }
 
 export default function Index() {
-  const { tables, persons } = useLoaderData<typeof clientLoader>()
-  const actionData = useActionData<typeof clientAction>()
+  const { tables, persons, posts } = useLoaderData<typeof clientLoader>()
+  const navigation = useNavigation()
 
   return (
     <Layout>
@@ -84,14 +121,33 @@ export default function Index() {
       <Main>
         <Panel title="Actions">
           <Form method="POST">
-            <Button name="intent" value="init">
-              Create Table
-            </Button>
+            <HStack>
+              <Button
+                name="intent"
+                value="seed_persons"
+                loading={
+                  navigation.state === 'submitting' &&
+                  navigation.formData?.get('intent') === 'seed_persons'
+                }
+              >
+                Seed Persons
+              </Button>
+
+              <Button
+                name="intent"
+                value="load_posts"
+                loading={
+                  navigation.state === 'submitting' &&
+                  navigation.formData?.get('intent') === 'load_posts'
+                }
+              >
+                Load JSON
+              </Button>
+            </HStack>
           </Form>
-          {actionData?.intent === 'init' && <div>Table Created</div>}
         </Panel>
 
-        <Panel title="Persons">
+        <Panel title="Persons" description={`${persons.length} records`}>
           <Table>
             <TableHeader>
               <TableRow>
@@ -106,6 +162,29 @@ export default function Index() {
                   <TableCell>{person.name}</TableCell>
                   <TableCell>{person.gender}</TableCell>
                   <TableCell>{person.age}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Panel>
+
+        <Panel title="posts" description={`${posts.length} records`}>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>UserId</TableHead>
+                <TableHead>Id</TableHead>
+                <TableHead>Title</TableHead>
+                <TableHead>Body</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {posts.map((post) => (
+                <TableRow key={post.id}>
+                  <TableCell>{post.userId}</TableCell>
+                  <TableCell>{post.id}</TableCell>
+                  <TableCell>{post.title}</TableCell>
+                  <TableCell>{post.body}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
