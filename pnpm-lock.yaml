@@ -12,8 +12,8 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5(zod@3.23.8)
       '@duckdb/duckdb-wasm':
-        specifier: 1.28.1-dev106.0
-        version: 1.28.1-dev106.0
+        specifier: 1.28.1-dev242.0
+        version: 1.28.1-dev242.0
       '@radix-ui/react-alert-dialog':
         specifier: ^1.1.1
         version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -339,8 +339,8 @@ packages:
     peerDependencies:
       zod: ^3.21.0
 
-  '@duckdb/duckdb-wasm@1.28.1-dev106.0':
-    resolution: {integrity: sha512-HcA9q/Yq1t8nAIg2rl8DmOTjKy1tAHSdBGHlCcWAm5StsfAjcm+f0STBEH3hmWPk0qEtOJF30OR+GfeyUOP+hA==}
+  '@duckdb/duckdb-wasm@1.28.1-dev242.0':
+    resolution: {integrity: sha512-gXyK15RCJ4kXBGDRLSvEqviGOgjMQuVvqzXrmbnQlw7jGaQUhYV4TH+KTaFVDMiCxVjaoyvT4NXF5AkalN2gdw==}
 
   '@emotion/hash@0.9.2':
     resolution: {integrity: sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g==}
@@ -1192,14 +1192,8 @@ packages:
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
 
-  '@types/command-line-args@5.2.0':
-    resolution: {integrity: sha512-UuKzKpJJ/Ief6ufIaIzr3A/0XnluX7RvFgwkV89Yzvm77wCh1kFaFmqN8XEnGcN62EuHdedQjEMb8mYxFLGPyA==}
-
   '@types/command-line-args@5.2.3':
     resolution: {integrity: sha512-uv0aG6R0Y8WHZLTamZwtfsDLVRnOa+n+n5rEvFWL5Na5gZ8V2Teab/duDPFzIIIhs9qizDpcavCusCLJZu62Kw==}
-
-  '@types/command-line-usage@5.0.2':
-    resolution: {integrity: sha512-n7RlEEJ+4x4TS7ZQddTmNSxP+zziEG0TNsMfiRIxcIVXt71ENJ9ojeXmGO3wPoTdn7pJcU2xc3CJYMktNT6DPg==}
 
   '@types/command-line-usage@5.0.4':
     resolution: {integrity: sha512-BwR5KP3Es/CSht0xqBcUXS3qCAUVXwpRKsV2+arxeb65atasuXG9LykC9Ab10Cw3s2raH92ZqOeILaQbsB2ACg==}
@@ -1230,12 +1224,6 @@ packages:
 
   '@types/node@20.14.12':
     resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
-
-  '@types/node@20.3.0':
-    resolution: {integrity: sha512-cumHmIAf6On83X7yP+LrsEyUOf/YlociZelmpRYaGFydoaPdxdt80MAbu6vWerQT2COCp2nPvHdsbD7tHn/YlQ==}
-
-  '@types/pad-left@2.1.1':
-    resolution: {integrity: sha512-Xd22WCRBydkGSApl5Bw0PhAOHKSVjNL3E3AwzKaps96IMraPqy5BvZIsBVK6JLwdybUzjHnuWVwpDd0JjTfHXA==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1316,8 +1304,8 @@ packages:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
 
-  apache-arrow@14.0.2:
-    resolution: {integrity: sha512-EBO2xJN36/XoY81nhLcwCJgFwkboDZeyNQ+OPsG7bCoQjc2BT0aTyH/MR6SrL+LirSNz+cYqjGRlupMMlP1aEg==}
+  apache-arrow@16.1.0:
+    resolution: {integrity: sha512-G6GiM6tzPDdGnKUnVkvVr1Nt5+hUaCMBISiasMSiJwI5L5GKDv5Du7Avc2kxlFfB/LEK2LTqh2GKSxutMdf8vQ==}
     hasBin: true
 
   apache-arrow@17.0.0:
@@ -1779,9 +1767,6 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
-
-  flatbuffers@23.5.26:
-    resolution: {integrity: sha512-vE+SI9vrJDwi1oETtTIFldC/o9GsVKRM+s6EL0nQgxXlYV1Vc4Tk30hj4xGICftInKQKj1F3up2n8UbIVobISQ==}
 
   flatbuffers@24.3.25:
     resolution: {integrity: sha512-3HDgPbgiwWMI9zVB7VYBHaMrbOO7Gm0v+yD2FV/sCKj+9NDeVL7BOBYUuhWAQGKWOzBo8S9WdMvV0eixO233XQ==}
@@ -2496,10 +2481,6 @@ packages:
   package-json-from-dist@1.0.0:
     resolution: {integrity: sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==}
 
-  pad-left@2.1.0:
-    resolution: {integrity: sha512-HJxs9K9AztdIQIAIa/OIazRAUW/L6B9hbQDxO4X07roW3eo9XqZc2ur9bn1StH9CnbbI9EgvejHQX7CBpCF1QA==}
-    engines: {node: '>=0.10.0'}
-
   pako@0.2.9:
     resolution: {integrity: sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA==}
 
@@ -2864,10 +2845,6 @@ packages:
 
   remark-rehype@10.1.0:
     resolution: {integrity: sha512-EFmR5zppdBp0WQeDVZ/b66CWJipB2q2VLNFMabzDSGR66Z2fQii83G5gTBbgGEnEEA0QRussvrFHxk1HWGJskw==}
-
-  repeat-string@1.6.1:
-    resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
-    engines: {node: '>=0.10'}
 
   require-like@0.1.2:
     resolution: {integrity: sha512-oyrU88skkMtDdauHDuKVrgR+zuItqr6/c//FXzvmxRGMexSDc6hNvJInGW3LL46n+8b50RykrvwSUIIQH2LQ5A==}
@@ -3664,9 +3641,9 @@ snapshots:
       '@conform-to/dom': 1.1.5
       zod: 3.23.8
 
-  '@duckdb/duckdb-wasm@1.28.1-dev106.0':
+  '@duckdb/duckdb-wasm@1.28.1-dev242.0':
     dependencies:
-      apache-arrow: 14.0.2
+      apache-arrow: 16.1.0
 
   '@emotion/hash@0.9.2': {}
 
@@ -4450,11 +4427,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.5
 
-  '@types/command-line-args@5.2.0': {}
-
   '@types/command-line-args@5.2.3': {}
-
-  '@types/command-line-usage@5.0.2': {}
 
   '@types/command-line-usage@5.0.4': {}
 
@@ -4485,10 +4458,6 @@ snapshots:
   '@types/node@20.14.12':
     dependencies:
       undici-types: 5.26.5
-
-  '@types/node@20.3.0': {}
-
-  '@types/pad-left@2.1.1': {}
 
   '@types/prop-types@15.7.12': {}
 
@@ -4599,17 +4568,16 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  apache-arrow@14.0.2:
+  apache-arrow@16.1.0:
     dependencies:
-      '@types/command-line-args': 5.2.0
-      '@types/command-line-usage': 5.0.2
-      '@types/node': 20.3.0
-      '@types/pad-left': 2.1.1
+      '@swc/helpers': 0.5.12
+      '@types/command-line-args': 5.2.3
+      '@types/command-line-usage': 5.0.4
+      '@types/node': 20.14.12
       command-line-args: 5.2.1
       command-line-usage: 7.0.1
-      flatbuffers: 23.5.26
+      flatbuffers: 24.3.25
       json-bignum: 0.0.3
-      pad-left: 2.1.0
       tslib: 2.6.3
 
   apache-arrow@17.0.0:
@@ -5138,8 +5106,6 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
-
-  flatbuffers@23.5.26: {}
 
   flatbuffers@24.3.25: {}
 
@@ -5972,10 +5938,6 @@ snapshots:
 
   package-json-from-dist@1.0.0: {}
 
-  pad-left@2.1.0:
-    dependencies:
-      repeat-string: 1.6.1
-
   pako@0.2.9: {}
 
   parse-entities@4.0.1:
@@ -6301,8 +6263,6 @@ snapshots:
       '@types/mdast': 3.0.15
       mdast-util-to-hast: 12.3.0
       unified: 10.1.2
-
-  repeat-string@1.6.1: {}
 
   require-like@0.1.2: {}
 
