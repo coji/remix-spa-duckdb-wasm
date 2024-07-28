@@ -11,6 +11,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@coji/kysely-duckdb-wasm": "^0.1.1",
     "@conform-to/zod": "^1.1.5",
     "@duckdb/duckdb-wasm": "1.28.1-dev242.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",

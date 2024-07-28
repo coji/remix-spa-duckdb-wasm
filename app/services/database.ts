@@ -1,6 +1,6 @@
 import { Kysely, sql } from 'kysely'
 import { initDb } from './duckdb-wasm'
-import { DuckDbDialect } from './kysely-duckdb'
+import { DuckDbDialect } from '@coji/kysely-duckdb-wasm'
 
 export { sql }
 let db: Kysely<any> | null = null
